@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Digite a sua mensagem</h1>
+<%= render 'form' %> 
+
+<h1>Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @messages %>
+      <% @messages.each do |message| %>
+        <tr>
+          <td><%= message.created_at.strftime("%F %T") %> :</td>
+          <td><%= sanitize message.content %></td>
+        
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
